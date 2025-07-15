@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* @theme {
+  --breakpoint-xxxs: 375px;
+  --breakpoint-xxxs: 414px;
+  --breakpoint-xxs: 390px;
+  --breakpoint-xs: 430px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1800px;
+  --breakpoint-4xl: 2100px; 
+  --breakpoint-5xl: 2400px;
+  --breakpoint-6xl: 2700px;
+} */
+
+/* 
+  This is where you can add custom global styles.
+  The body styles below set the default background and text color.
+*/
+
+:root {
+    /* Default background and foreground colors for light mode */
+    --background: #ffffff;
+    /* Page background */
+    --foreground: #171717;
+    /* Main text color */
+
+    /* These are used for the gradient background effect */
+    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 255, 255, 255;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Default background and foreground colors for dark mode */
+        --background: #0a0a0a;
+        /* Page background */
+        --foreground: #ededed;
+        /* Main text color */
+
+        /* These are used for the gradient background effect */
+        --background-end-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    /* This sets the default background to white and the default text color to a dark gray. */
+    @apply bg-white text-slate-900;
+    font-family: Arial, Helvetica, sans-serif;
+}
