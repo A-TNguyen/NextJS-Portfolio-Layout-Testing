@@ -1,6 +1,15 @@
-# Portfolio Website Grid layout test
+# React/NextJS Portfolio Website Grid layout test
 
-I created this template to practice grid layouts and how it looks from a grid frame perspective.  
+I created this template to practice grid layouts and how it looks from a grid frame perspective.
+
+## 🛠️ Technologies Used
+
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Animation:** GSAP (ScrollToPlugin)
+- **Package Manager:** Yarn
+- **Development:** ESLint, PostCSS
 
 ## 🚀 Getting Started
 
@@ -150,15 +159,6 @@ The template includes several custom hooks to manage application state and behav
     - Handles the initial page load by scrolling to the section specified in the URL hash (if any).
     - Listens for `hashchange` events to handle browser back/forward button navigation.
     - Provides `navigateToSection` and `navigateToHome` functions that both perform a smooth scroll and update the URL hash using `window.history.pushState`.
-
-## 🛠️ Technologies Used
-
-- **Framework:** Next.js 14 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animation:** GSAP (ScrollToPlugin)
-- **Package Manager:** Yarn
-- **Development:** ESLint, PostCSS
 
 ## 📱 Responsive Design
 
