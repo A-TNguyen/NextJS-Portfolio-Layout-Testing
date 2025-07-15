@@ -128,6 +128,29 @@ Navigation configuration:
 - Centralized route management
 - Hash-based navigation paths
 
+## 🎣 Custom Hooks
+
+The template includes several custom hooks to manage application state and behavior.
+
+### **`useSmoothScroll.ts`**
+- **Purpose:** Provides functions for smooth, animated scrolling.
+- **Dependencies:** `gsap` with `ScrollToPlugin`.
+- **Exports:**
+    - `scrollToSection(sectionId, duration)`: Scrolls to a specific element ID with an offset to account for the header.
+    - `scrollToTop(duration)`: Scrolls smoothly to the top of the page.
+
+### **`useActiveSection.ts`**
+- **Purpose:** Determines which navigation section is currently visible in the viewport.
+- **How it works:** Uses the `IntersectionObserver` API to "spy" on the content sections. It updates the active section state based on which section is intersecting with the viewport. This is used to highlight the active link in the navigation menu.
+- **Returns:** The `href` string (e.g., `/#about`) of the currently active section.
+
+### **`useNavigation.ts`**
+- **Purpose:** A comprehensive hook that manages URL state and ties together scrolling behavior with browser history.
+- **How it works:**
+    - Handles the initial page load by scrolling to the section specified in the URL hash (if any).
+    - Listens for `hashchange` events to handle browser back/forward button navigation.
+    - Provides `navigateToSection` and `navigateToHome` functions that both perform a smooth scroll and update the URL hash using `window.history.pushState`.
+
 ## 🛠️ Technologies Used
 
 - **Framework:** Next.js 14 (App Router)
@@ -144,3 +167,31 @@ Navigation configuration:
 - **Navigation:** Collapsible mobile menu
 - **Typography:** Responsive font scaling
 - **Layout:** Flexible grid system
+
+## 🐛 Debugging and Testing
+
+This template includes utilities to help with layout debugging and component identification during development.
+
+### **`src/styles/debug.css`**
+To visualize the borders of all components and debug layout issues, simply import this CSS file into a layout or page component (e.g., `src/app/layout.tsx`).
+
+```tsx
+import '@/styles/debug.css';
+```
+This applies a `1px solid red` border to every element, making it easy to see the dimensions and positioning of your components. Remember to remove the import before deploying to production.
+
+### **`src/utils/tagPrefix.tsx`**
+This utility provides a set of higher-order functions to prefix content with a tag (e.g., "H1:", "P:"). This is useful for identifying which component is rendering a piece of text during debugging.
+
+**Example Usage:**
+In your component, wrap your text content with one of the helper functions:
+
+```tsx
+import { withPPrefix } from '@/utils/tagPrefix';
+
+const MyComponent = () => (
+  <p>{withPPrefix("This is my paragraph text.")}</p>
+);
+// Renders: <p>P: This is my paragraph text.</p>
+```
+The file includes helpers like `withH1Prefix`, `withPPrefix`, `withDivPrefix`, etc.
